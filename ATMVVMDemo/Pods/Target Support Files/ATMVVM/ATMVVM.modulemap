@@ -1,0 +1,6 @@
+module ATMVVM {
+  umbrella header "ATMVVM-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+module Pods_ATMVVMDemo {
+  umbrella header "Pods-ATMVVMDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}
