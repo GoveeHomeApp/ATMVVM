@@ -117,7 +117,7 @@ class Demo2SectionVM: ATMVVM_Table_SectionVM {
     override func setupData() {
         super.setupData()
         headerId = "Demo2HeaderView"
-        footerId = "Demo2FooterView"
+//        footerId = "Demo2FooterView"
     }
 }
 

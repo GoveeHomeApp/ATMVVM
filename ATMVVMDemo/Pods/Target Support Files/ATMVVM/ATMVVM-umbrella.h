@@ -12,6 +12,8 @@
 
 #import "ATMVVM.h"
 #import "ATMVVMDefine.h"
+#import "UICollectionView+ATMVVM.h"
+#import "UITableView+ATMVVM.h"
 #import "ATMVVM_Collection_Cell.h"
 #import "ATMVVM_Collection_ItemVM.h"
 #import "ATMVVM_Collection_ListVM.h"
@@ -24,8 +26,6 @@
 #import "ATMVVM_Table_Proxy.h"
 #import "ATMVVM_Table_RowVM.h"
 #import "ATMVVM_Table_SectionVM.h"
-#import "UICollectionView+ATMVVM.h"
-#import "UITableView+ATMVVM.h"
 
 FOUNDATION_EXPORT double ATMVVMVersionNumber;
 FOUNDATION_EXPORT const unsigned char ATMVVMVersionString[];

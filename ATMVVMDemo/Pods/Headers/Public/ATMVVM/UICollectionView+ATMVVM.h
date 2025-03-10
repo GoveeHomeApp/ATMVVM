@@ -1,1 +1,1 @@
-../../../ATMVVM/ATMVVM/Classes/UICollectionView+ATMVVM.h
+../../../../../ATMVVM/Classes/UICollectionView+ATMVVM.h

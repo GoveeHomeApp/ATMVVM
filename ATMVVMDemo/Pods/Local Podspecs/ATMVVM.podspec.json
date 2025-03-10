@@ -1,6 +1,6 @@
 {
   "name": "ATMVVM",
-  "version": "0.1",
+  "version": "0.1.0",
   "summary": "A short description of ATMVVM.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/abiaoyo/ATMVVM",
@@ -13,10 +13,24 @@
   },
   "source": {
     "git": "https://github.com/abiaoyo/ATMVVM.git",
-    "tag": "0.1"
+    "tag": "0.1.0"
   },
   "platforms": {
     "ios": "10.0"
   },
-  "source_files": "ATMVVM/Classes/**/*"
+  "source_files": "ATMVVM/Classes/*.{h,m}",
+  "default_subspecs": [
+    "Collection",
+    "Table"
+  ],
+  "subspecs": [
+    {
+      "name": "Collection",
+      "source_files": "ATMVVM/Classes/Collection/**/*.{h,m}"
+    },
+    {
+      "name": "Table",
+      "source_files": "ATMVVM/Classes/Table/**/*.{h,m}"
+    }
+  ]
 }

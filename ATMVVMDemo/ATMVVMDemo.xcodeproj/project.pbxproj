@@ -17,6 +17,8 @@
 		53C93D4C2D38D0F3008B0CDE /* BaseAlignCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C93D4B2D38D0F3008B0CDE /* BaseAlignCollectionViewFlowLayout.m */; };
 		53C93D4F2D38D8D1008B0CDE /* GVCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C93D4E2D38D8D1008B0CDE /* GVCollectionViewFlowLayout.m */; };
 		53C93D532D3A2E91008B0CDE /* Demo2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C93D522D3A2E91008B0CDE /* Demo2ViewController.swift */; };
+		53DFA74D2D76904A00BD96C2 /* Demo3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DFA74C2D76904A00BD96C2 /* Demo3ViewController.swift */; };
+		53DFA7502D76961A00BD96C2 /* GHDecorationFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 53DFA74F2D76961A00BD96C2 /* GHDecorationFlowLayout.m */; };
 		FB6B32EE27D7E5390AF87148 /* libPods-ATMVVMDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9744AE57104F70B5C7E37321 /* libPods-ATMVVMDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,9 @@
 		53C93D4D2D38D8D1008B0CDE /* GVCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		53C93D4E2D38D8D1008B0CDE /* GVCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		53C93D522D3A2E91008B0CDE /* Demo2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo2ViewController.swift; sourceTree = "<group>"; };
+		53DFA74C2D76904A00BD96C2 /* Demo3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo3ViewController.swift; sourceTree = "<group>"; };
+		53DFA74E2D76961A00BD96C2 /* GHDecorationFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GHDecorationFlowLayout.h; sourceTree = "<group>"; };
+		53DFA74F2D76961A00BD96C2 /* GHDecorationFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHDecorationFlowLayout.m; sourceTree = "<group>"; };
 		9744AE57104F70B5C7E37321 /* libPods-ATMVVMDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ATMVVMDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC15B69C1CB6DC3C234CEE6D /* Pods-ATMVVMDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATMVVMDemo.debug.xcconfig"; path = "Target Support Files/Pods-ATMVVMDemo/Pods-ATMVVMDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,8 +92,11 @@
 				53C93D332D38B514008B0CDE /* ViewController.swift */,
 				53C93D432D38B5F2008B0CDE /* Demo1ViewControlelr.swift */,
 				53C93D522D3A2E91008B0CDE /* Demo2ViewController.swift */,
+				53DFA74C2D76904A00BD96C2 /* Demo3ViewController.swift */,
 				53C93D4A2D38D0F3008B0CDE /* BaseAlignCollectionViewFlowLayout.h */,
 				53C93D4B2D38D0F3008B0CDE /* BaseAlignCollectionViewFlowLayout.m */,
+				53DFA74E2D76961A00BD96C2 /* GHDecorationFlowLayout.h */,
+				53DFA74F2D76961A00BD96C2 /* GHDecorationFlowLayout.m */,
 				53C93D4D2D38D8D1008B0CDE /* GVCollectionViewFlowLayout.h */,
 				53C93D4E2D38D8D1008B0CDE /* GVCollectionViewFlowLayout.m */,
 				53C93D352D38B514008B0CDE /* Main.storyboard */,
@@ -226,8 +234,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				53C93D342D38B514008B0CDE /* ViewController.swift in Sources */,
+				53DFA7502D76961A00BD96C2 /* GHDecorationFlowLayout.m in Sources */,
 				53C93D532D3A2E91008B0CDE /* Demo2ViewController.swift in Sources */,
 				53C93D4F2D38D8D1008B0CDE /* GVCollectionViewFlowLayout.m in Sources */,
+				53DFA74D2D76904A00BD96C2 /* Demo3ViewController.swift in Sources */,
 				53C93D442D38B5F2008B0CDE /* Demo1ViewControlelr.swift in Sources */,
 				53C93D4C2D38D0F3008B0CDE /* BaseAlignCollectionViewFlowLayout.m in Sources */,
 				53C93D302D38B514008B0CDE /* AppDelegate.swift in Sources */,

@@ -1,1 +1,1 @@
-../../../ATMVVM/ATMVVM/Classes/Collection/ATMVVM_Collection_SectionVM.h
+../../../../../ATMVVM/Classes/Collection/ATMVVM_Collection_SectionVM.h

@@ -1,1 +1,1 @@
-../../../ATMVVM/ATMVVM/Classes/Table/ATMVVM_Table_RowVM.h
+../../../../../ATMVVM/Classes/Table/ATMVVM_Table_RowVM.h

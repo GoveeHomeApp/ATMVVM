@@ -1,12 +1,16 @@
 PODS:
-  - ATMVVM (0.1)
+  - ATMVVM (0.1.0):
+    - ATMVVM/Collection (= 0.1.0)
+    - ATMVVM/Table (= 0.1.0)
+  - ATMVVM/Collection (0.1.0)
+  - ATMVVM/Table (0.1.0)
   - LookinServer (1.2.8):
     - LookinServer/Core (= 1.2.8)
   - LookinServer/Core (1.2.8)
   - SnapKit (5.7.1)
 
 DEPENDENCIES:
-  - "ATMVVM (from `git@github.com:yebiaoli/ATMVVM.git`, tag `0.1`)"
+  - ATMVVM (from `../../ATMVVM`)
   - LookinServer
   - SnapKit
 
@@ -17,19 +21,13 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   ATMVVM:
-    :git: "git@github.com:yebiaoli/ATMVVM.git"
-    :tag: '0.1'
-
-CHECKOUT OPTIONS:
-  ATMVVM:
-    :git: "git@github.com:yebiaoli/ATMVVM.git"
-    :tag: '0.1'
+    :path: "../../ATMVVM"
 
 SPEC CHECKSUMS:
-  ATMVVM: a4b9bcbc28acd8c8bdcb793849de4ff25472802b
+  ATMVVM: abd0984bab5efc13d5ff8270d65dd192b86a3bbf
   LookinServer: 1b2b61c6402ae29fa22182d48f5cd067b4e99e80
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
 
-PODFILE CHECKSUM: 6b11e64926db13029cb850ff06b47f3cc5290967
+PODFILE CHECKSUM: cd97644045b18b2e3a72a46595dad0c04b3846f4
 
 COCOAPODS: 1.14.3
