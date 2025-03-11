@@ -8,7 +8,6 @@
 
 @property (nonatomic, strong) ATMVVM_Collection_ItemVM * _Nullable itemVM;
 @property (nonatomic, strong) NSIndexPath * _Nullable indexPath;
-@property (nonatomic, assign) ATMVVMCollectionAutoLayout autoLayout;
 
 - (void)setupData;
 - (void)setupSubviews;

@@ -22,6 +22,8 @@ typedef void (^ATMVVM_Collection_SectionVM_RefreshViewBlock)(void);
 @property (nonatomic, strong) NSIndexPath * _Nullable indexPath;
 
 //以下属性可以自己赋值使用
+@property (nonatomic, strong) NSCollectionLayoutSection * _Nullable layoutSection;
+
 @property (nonatomic, copy) NSString * _Nullable headerId;
 @property (nonatomic, copy) NSString * _Nullable footerId;
 

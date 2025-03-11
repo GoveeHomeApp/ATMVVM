@@ -8,7 +8,7 @@ target 'ATMVVMDemo' do
 
   # Pods for ATMVVMDemo
   pod 'ATMVVM', :path => '../../ATMVVM'
-#  pod 'ATMVVM', :git => 'git@github.com:yebiaoli/ATMVVM.git', :tag => '0.1'
+#  pod 'ATMVVM', :git => 'git@github.com:GoveeHomeApp/ATMVVM.git', :tag => '0.1.1'
   pod 'SnapKit'
   pod 'LookinServer', :configurations => ['Debug']
 end

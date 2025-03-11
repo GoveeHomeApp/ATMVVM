@@ -23,10 +23,6 @@
 @property (nonatomic, weak) id forwarder; //只会转发没有proxy实现的方法
 @property (nonatomic, weak) id<ATMVVM_Collection_Proxy_Delegate> delegate; //只有部分功能的代理
 
-@property (nonatomic, assign) BOOL isAutoLayoutCell;
-@property (nonatomic, assign) BOOL isAutoLayoutHeader;
-@property (nonatomic, assign) BOOL isAutoLayoutFooter;
-
 @end
 
 #endif

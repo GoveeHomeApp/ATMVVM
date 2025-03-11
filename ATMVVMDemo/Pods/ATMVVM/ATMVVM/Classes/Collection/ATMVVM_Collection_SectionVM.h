@@ -6,12 +6,14 @@
 #define ATMVVM_Collection_SectionVM_h
 
 @class ATMVVM_Collection_SectionVM;
+typedef void (^ATMVVM_Collection_SectionVM_ReloadSectionBlock)(void);
 typedef void (^ATMVVM_Collection_SectionVM_ReloadViewBlock)(void);
 typedef void (^ATMVVM_Collection_SectionVM_RefreshViewBlock)(void);
 
 @interface ATMVVM_Collection_SectionVM : NSObject
 
 //这几个属性不能自己赋值使用
+@property (nonatomic, copy, readonly) ATMVVM_Collection_SectionVM_ReloadSectionBlock _Nonnull reloadSectionBlock;
 @property (nonatomic, copy, readonly) ATMVVM_Collection_SectionVM_ReloadViewBlock _Nonnull reloadViewBlock;
 @property (nonatomic, copy, readonly) ATMVVM_Collection_SectionVM_RefreshViewBlock _Nonnull refreshHeaderViewBlock;
 @property (nonatomic, copy, readonly) ATMVVM_Collection_SectionVM_RefreshViewBlock _Nonnull refreshFooterViewBlock;

@@ -27,30 +27,4 @@
 }
 - (void)refreshSubviews:(BOOL)isFromVM{}
 
-- (UICollectionViewLayoutAttributes *)preferredLayoutAttributesFittingAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes{
-    switch (self.autoLayout) {
-        case ATMVVMCollectionAutoLayoutHeight: {
-            [self setNeedsLayout];
-            [self layoutIfNeeded];
-            CGSize size = [self.contentView systemLayoutSizeFittingSize:layoutAttributes.size];
-            CGRect cellFrame = layoutAttributes.frame;
-            cellFrame.size.height = size.height;
-            layoutAttributes.frame = cellFrame;
-            return layoutAttributes;
-        }
-        case ATMVVMCollectionAutoLayoutWidth: {
-            [self setNeedsLayout];
-            [self layoutIfNeeded];
-            CGSize size = [self.contentView systemLayoutSizeFittingSize:layoutAttributes.size];
-            CGRect cellFrame = layoutAttributes.frame;
-            cellFrame.size.width = size.width;
-            layoutAttributes.frame = cellFrame;
-            return layoutAttributes;
-        }
-        default:{
-            return [super preferredLayoutAttributesFittingAttributes:layoutAttributes];
-        }
-    }
-}
-
 @end

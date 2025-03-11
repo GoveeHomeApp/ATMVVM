@@ -146,24 +146,6 @@
 }
 
 - (BOOL)respondsToSelector:(SEL)aSelector{
-    if(self.isAutoLayoutCell){
-        SEL cellSizeSelector = @selector(collectionView:layout:sizeForItemAtIndexPath:);
-        if(cellSizeSelector == aSelector){
-            return NO;
-        }
-    }
-    if(self.isAutoLayoutHeader){
-        SEL headerSizeSelector = @selector(collectionView:layout:referenceSizeForHeaderInSection:);
-        if(headerSizeSelector == aSelector){
-            return NO;
-        }
-    }
-    if(self.isAutoLayoutFooter){
-        SEL footerSizeSelector = @selector(collectionView:layout:referenceSizeForFooterInSection:);
-        if(footerSizeSelector == aSelector){
-            return NO;
-        }
-    }
     return [super respondsToSelector:aSelector] || (self.forwarder && [self.forwarder respondsToSelector:aSelector]);
 }
 

@@ -122,6 +122,58 @@ class Demo3SectionVM: ATMVVM_Collection_SectionVM {
             }
         }
     }
+    
+    func createLayoutSection1() -> NSCollectionLayoutSection {
+        //1 构造Item的NSCollectionLayoutSize
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(100))
+        // 2 构造NSCollectionLayoutItem
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        // 3 构造Group的NSCollectionLayoutSize
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),heightDimension: .estimated(100))
+        // 4 构造NSCollectionLayoutGroup
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+//            group.interItemSpacing = .fixed(floor(10.5.rate))
+        group.contentInsets = .init(top: 0, leading: 30.rate, bottom: 0, trailing: 30.rate)
+        
+        // 5 构造 header / footer
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(48.rate))
+        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+//            header.pinToVisibleBounds = true
+        
+        // 6 构造NSCollectionLayoutSection
+        let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = 5.rate
+        section.boundarySupplementaryItems = [header]
+        
+        return section
+    }
+    func createLayoutSection2() -> NSCollectionLayoutSection {
+        //1 构造Item的NSCollectionLayoutSize
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(100))
+        // 2 构造NSCollectionLayoutItem
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        // 3 构造Group的NSCollectionLayoutSize
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),heightDimension: .estimated(100))
+        // 4 构造NSCollectionLayoutGroup
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+//            group.interItemSpacing = .fixed(floor(10.5.rate))
+//        group.contentInsets = .init(top: 10, leading: 30.rate, bottom: 10, trailing: 30.rate)
+        
+        // 5 构造 header / footer
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(48.rate))
+        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+//            header.pinToVisibleBounds = true
+        
+        // 6 构造NSCollectionLayoutSection
+        let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = 5.rate
+        section.boundarySupplementaryItems = [header]
+        section.contentInsets = .init(top: 10, leading: 40.rate, bottom: 10, trailing: 40.rate)
+        
+        return section
+    }
 }
 
 class Demo3ItemVM: ATMVVM_Collection_ItemVM {
@@ -168,6 +220,7 @@ class Demo3ListVM: ATMVVM_Collection_ListVM {
         let itemVM1 = Demo3ItemVM(text: "11 有时候也要配合上面自动布局需要实现的方法共同")
         
         let sectionVM1 = Demo3SectionVM(text: "1")
+        sectionVM1.layoutSection = sectionVM1.createLayoutSection1()
         sectionVM1.oriItemVMs.append(itemVM1)
         
         let itemVM12 = Demo3ItemVM(text: "12 正如 @Caio 在评论中指出的那样，此解决方案会导致 iOS 10 及更早版本崩溃。在我的项目中，我通过包装上面的代码if #available(iOS 11.0, *) { ... }并在 else 子句中提供固定大小来“解决”了这个问题。这不是理想的，但对我来说是可以接受的。")
@@ -181,6 +234,7 @@ class Demo3ListVM: ATMVVM_Collection_ListVM {
         
         let itemVM2 = Demo3ItemVM(text: "21 比如，CollectionViewCell中有一个支持多行的label, 在sectionController的sizeForItem 中首先要手动计算这些字所占高度，再加上label上下间隙高度。")
         let sectionVM2 = Demo3SectionVM(text: "2")
+        sectionVM2.layoutSection = sectionVM1.createLayoutSection2()
         sectionVM2.oriItemVMs.append(itemVM2)
         sectionVM2.createLayout()
         viewProxy.sectionVMs.add(sectionVM2)
@@ -251,8 +305,25 @@ class Demo3ViewControlelr: UIViewController {
     
     lazy var listVM = Demo3ListVM()
     
+    func createLayoutSection(group:NSCollectionLayoutGroup) -> NSCollectionLayoutSection {
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(48.rate))
+        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = 5.rate
+        section.boundarySupplementaryItems = [header]
+        return section
+    }
+    
     func createLayout() -> UICollectionViewCompositionalLayout {
+//        let sectionVMs = self.listVM.viewProxy.sectionVMs
+        
         let layout = UICollectionViewCompositionalLayout { sectionIndex, layoutEnvironment in
+            
+            if let layoutSection = (self.listVM.viewProxy.sectionVMs[sectionIndex] as AnyObject).layoutSection as? NSCollectionLayoutSection {
+                return layoutSection
+            }
+            
             //1 构造Item的NSCollectionLayoutSize
             let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(100))
             // 2 构造NSCollectionLayoutItem
@@ -266,16 +337,16 @@ class Demo3ViewControlelr: UIViewController {
 //            group.contentInsets = .init(top: 0, leading: 15.rate, bottom: 0, trailing: 15.rate)
             
             // 5 构造 header / footer
-            let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(48.rate))
-            let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+//            let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(48.rate))
+//            let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
 //            header.pinToVisibleBounds = true
             
             // 6 构造NSCollectionLayoutSection
-            let section = NSCollectionLayoutSection(group: group)
-            section.interGroupSpacing = 5.rate
-            section.boundarySupplementaryItems = [header]
+//            let section = NSCollectionLayoutSection(group: group)
+//            section.interGroupSpacing = 5.rate
+//            section.boundarySupplementaryItems = [header]
             
-            return section
+            return self.createLayoutSection(group: group)
         }
         return layout
     }
@@ -301,8 +372,8 @@ class Demo3ViewControlelr: UIViewController {
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        listVM.viewProxy.isAutoLayoutCell = true
-        listVM.viewProxy.isAutoLayoutHeader = true
+//        listVM.viewProxy.isAutoLayoutCell = true
+//        listVM.viewProxy.isAutoLayoutHeader = true
         
         listVM.createData()
         

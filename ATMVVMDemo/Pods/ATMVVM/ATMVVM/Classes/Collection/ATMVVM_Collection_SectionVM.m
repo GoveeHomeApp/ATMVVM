@@ -3,6 +3,7 @@
 
 @interface ATMVVM_Collection_SectionVM()
 
+@property (nonatomic, copy) ATMVVM_Collection_SectionVM_ReloadSectionBlock _Nonnull reloadSectionBlock;
 @property (nonatomic, copy) ATMVVM_Collection_SectionVM_ReloadViewBlock _Nonnull reloadViewBlock;
 @property (nonatomic, copy) ATMVVM_Collection_SectionVM_RefreshViewBlock _Nonnull refreshHeaderViewBlock;
 @property (nonatomic, copy) ATMVVM_Collection_SectionVM_RefreshViewBlock _Nonnull refreshFooterViewBlock;
@@ -22,6 +23,14 @@
 
 - (void)_setupBlocks{
     __weak typeof(self) weakSelf = self;
+    self.reloadSectionBlock = ^{
+        NSInteger section = weakSelf.indexPath.section;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [UIView performWithoutAnimation:^{
+                [weakSelf.collectionView reloadSections:[NSIndexSet indexSetWithIndex:section]];
+            }];
+        });
+    };
     self.reloadViewBlock = ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             [weakSelf.collectionView reloadData];

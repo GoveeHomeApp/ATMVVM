@@ -23,9 +23,9 @@
 @property (nonatomic, weak) id forwarder; //只会转发没有proxy实现的方法
 @property (nonatomic, weak) id<ATMVVM_Collection_Proxy_Delegate> delegate; //只有部分功能的代理
 
-@property (nonatomic, assign) ATMVVMCollectionAutoLayout autoLayoutCell; //自适应类型(无/高度/宽度) 自适应时要设置estimatedItemSize，不要打开sectionHeaders/FootersPinToVisibleBounds
-@property (nonatomic, assign) ATMVVMCollectionAutoLayout autoLayoutHeader;
-@property (nonatomic, assign) ATMVVMCollectionAutoLayout autoLayoutFooter;
+@property (nonatomic, assign) BOOL isAutoLayoutCell;
+@property (nonatomic, assign) BOOL isAutoLayoutHeader;
+@property (nonatomic, assign) BOOL isAutoLayoutFooter;
 
 @end
 
