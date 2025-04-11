@@ -30,7 +30,7 @@
         });
     };
     self.refreshHeaderViewBlock = ^{
-        void (^block)(void) = ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
             UITableView * tableView = weakSelf.tableView;
             NSIndexPath * indexPath = weakSelf.indexPath;
             
@@ -41,18 +41,10 @@
                     [header layoutIfNeeded];
                 }
             }
-        };
-        
-        if(!NSThread.isMainThread){
-            dispatch_async(dispatch_get_main_queue(), ^{
-                block();
-            });
-        }else{
-            block();
-        }
+        });
     };
     self.refreshFooterViewBlock = ^{
-        void (^block)(void) = ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
             UITableView * tableView = weakSelf.tableView;
             NSIndexPath * indexPath = weakSelf.indexPath;
             
@@ -63,16 +55,7 @@
                     [footer layoutIfNeeded];
                 }
             }
-        };
-        
-        if(!NSThread.isMainThread){
-            dispatch_async(dispatch_get_main_queue(), ^{
-                block();
-            });
-        }else{
-            block();
-        }
-        
+        });
     };
 }
 

@@ -36,7 +36,7 @@
         });
     };
     self.refreshViewBlock = ^{
-        void (^block)(void) = ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
             UICollectionView * collectionView = weakSelf.collectionView;
             NSIndexPath * indexPath = weakSelf.indexPath;
             
@@ -47,15 +47,7 @@
                     [cell layoutIfNeeded];
                 }
             }
-        };
-        
-        if(!NSThread.isMainThread){
-            dispatch_async(dispatch_get_main_queue(), ^{
-                block();
-            });
-        }else{
-            block();
-        }
+        });
     };
 }
 

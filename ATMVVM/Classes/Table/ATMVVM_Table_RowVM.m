@@ -28,7 +28,7 @@
         });
     };
     self.refreshViewBlock = ^{
-        void (^block)(void) = ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
             UITableView * tableView = weakSelf.tableView;
             NSIndexPath * indexPath = weakSelf.indexPath;
             
@@ -39,15 +39,7 @@
                     [cell layoutIfNeeded];
                 }
             }
-        };
-        
-        if(!NSThread.isMainThread){
-            dispatch_async(dispatch_get_main_queue(), ^{
-                block();
-            });
-        }else{
-            block();
-        }
+        });
     };
 }
 

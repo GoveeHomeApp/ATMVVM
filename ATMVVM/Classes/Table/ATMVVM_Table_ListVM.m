@@ -29,7 +29,9 @@
 - (void)setupData {}
 - (void)createData {}
 - (void)reloadData {
-    [self.tableView reloadData];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
 }
 - (void)registerTableView:(nonnull UITableView *)tableView{
     self.tableView = tableView;

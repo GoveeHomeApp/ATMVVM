@@ -29,7 +29,9 @@
 - (void)setupData {}
 - (void)createData {}
 - (void)reloadData {
-    [self.collectionView reloadData];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.collectionView reloadData];
+    });
 }
 - (void)registerCollectionView:(UICollectionView * _Nonnull)collectionView {
     [collectionView registerClass:UICollectionViewCell.class forCellWithReuseIdentifier:@"UICollectionViewCell"];
