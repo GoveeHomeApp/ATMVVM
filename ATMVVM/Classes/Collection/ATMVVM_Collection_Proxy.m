@@ -54,13 +54,14 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [self getSectionVM:section].itemVMs.count;
+    ATMVVM_Collection_SectionVM * sectionVM = [self getSectionVM:section];
+    sectionVM.collectionView = collectionView;
+    return sectionVM.itemVMs.count;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ATMVVM_Collection_SectionVM * sectionVM = [self getSectionVM:indexPath.section];
     sectionVM.indexPath = indexPath;
-    sectionVM.collectionView = collectionView;
     
     ATMVVM_Collection_ItemVM * itemVM = [self getItemVM:indexPath];
     itemVM.indexPath = indexPath;
